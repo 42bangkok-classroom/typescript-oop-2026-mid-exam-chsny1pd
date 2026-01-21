@@ -1,6 +1,6 @@
 // Write your code below
 const input3 = process.argv[2]
-if(input === undefined || input.trim()==''){
+if(input3 === undefined || input3.trim()==''){
     process.exit
 }
 else{
