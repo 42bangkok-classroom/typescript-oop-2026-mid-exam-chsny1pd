@@ -23,15 +23,15 @@ export interface FullAlbum {
     photos:Photo[]
 }
 
-export async function mapPhotoToAlbum(userIds?: number[]): Promise<FullAlbum[]> {
+export async function mapPhotoToAlbum(userIds?: number): Promise<FullAlbum[]> {
     try{
         const PHOTOS_URL = await axios.get<Photo[]>('https://jsonplaceholder.typicode.com/photos');
         const ALBUMS_URL = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albums');
         const photos = PHOTOS_URL.data
         const albums = ALBUMS_URL.data
         if(!albums.length) return []
-        //const filteralbum = albums.filter((f) => f.userId == userIds)
-        const mapalbum = albums.map((p) => ({
+        const filteralbum = albums.filter((f) => (f.userId == userIds))
+        const mapalbum = filteralbum.map((p) => ({
         userId: p.userId,
         id: p.id,
         title: p.title,
