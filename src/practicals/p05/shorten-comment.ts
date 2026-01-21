@@ -1,6 +1,6 @@
 const comment = "TypeScript is a strongly typed programming language"
 
-function shortenComment(comment: string):string {
+export function shortenComment(comment: string):string {
   if(comment === undefined || comment.trim()==''){
     return ''
   }
