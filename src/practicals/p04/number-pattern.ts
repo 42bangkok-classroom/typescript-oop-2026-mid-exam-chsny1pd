@@ -11,14 +11,12 @@ else{
     else{
         for(let i = 1 ; i<=number ; i++){
             let result = ''
-            for(let j = i ; j<=number ; j++){
-                if(j!=i){
-                    result += ''
-                }
-                else {
-                    result += i
-                }
+            for(let k = number ; k>i ; k--){
+              result += ' '
             }
-        }   
+            for(let j = i ; j>0 ; j--){
+                result += j
+              }
+        console.log(result)}
     }
 }
