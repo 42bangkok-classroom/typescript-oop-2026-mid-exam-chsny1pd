@@ -9,8 +9,8 @@ function getUniqueNumbers(arr1: number[], arr2: number[]): number[] {
   // })
   // return merged
   const x:any[] = []
-  let z = merged.map( p => !x.includes(p))
-  
+  let z = merged.filter( f => !x.includes(f))
+  return z
 }
 
 const arr3 = [1, 2, 3, 4];

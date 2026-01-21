@@ -16,7 +16,7 @@ interface Photo{
 
 }
 
-interface FullAlbum {
+export interface FullAlbum {
     userId:number,
     id:number,
     title:string
@@ -25,7 +25,7 @@ interface FullAlbum {
 
 export async function mapPhotoToAlbum(userIds?: number[]): Promise<FullAlbum[]> {
     try{
-        const PHOTOS_URL = await axios.get<Photo>('https://jsonplaceholder.typicode.com/photos');
+        const PHOTOS_URL = await axios.get<Photo[]>('https://jsonplaceholder.typicode.com/photos');
         const ALBUMS_URL = await axios.get<Album[]>('https://jsonplaceholder.typicode.com/albums');
         const photos = PHOTOS_URL.data
         const albums = ALBUMS_URL.data
