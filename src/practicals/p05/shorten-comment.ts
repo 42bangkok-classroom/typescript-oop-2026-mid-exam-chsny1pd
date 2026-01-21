@@ -6,15 +6,14 @@ export function shortenComment(comment: string):string {
   }
   else{
     for( const args of comment){
-      let result = ''
       if(args.length>5 && args.length<10){
-        result += args
-        return result
+        return args
       }
       else{ 
-        return result
+        return ''
       }
-    }
-    return ''
-  }
+    } 
+    return comment
 }
+}
+console.log(shortenComment(comment))
