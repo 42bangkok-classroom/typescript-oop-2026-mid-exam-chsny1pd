@@ -2,7 +2,7 @@ import axios from 'axios'
 import { title } from 'process'
 
 interface Album {
-    userId:number[],
+    userId:number,
     id:number,
     title:string
 }
@@ -20,7 +20,7 @@ export interface FullAlbum {
     userId:number,
     id:number,
     title:string
-    photos:Photo
+    photos:Photo[]
 }
 
 export async function mapPhotoToAlbum(userIds?: number[]): Promise<FullAlbum[]> {
@@ -30,13 +30,13 @@ export async function mapPhotoToAlbum(userIds?: number[]): Promise<FullAlbum[]> 
         const photos = PHOTOS_URL.data
         const albums = ALBUMS_URL.data
         if(!albums.length) return []
-        const filteralbum = albums.filter((f) => f.userId == userIds)
-        const mapalbum = filteralbum.map((p) => [{
-        userId : p.userId,
+        //const filteralbum = albums.filter((f) => f.userId == userIds)
+        const mapalbum = albums.map((p) => ({
+        userId: p.userId,
         id: p.id,
         title: p.title,
         photos: photos
-    }])
+    }))
     return mapalbum
     }
     catch(err){
